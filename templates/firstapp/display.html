@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+	<!-- <meta http-equiv="refresh" content="120" > -->
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title> Dashboard | Student Record </title>
+  	<!-- Add image/icon for title bar  -->
+  	<!-- <link rel="icon" type="image/ico" href="images/bridge.jpg" /> -->
+  	<!-- Add Bootstrap CDN for Table  -->
+  	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+  	<!-- Add Datatable CSS File -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{%static 'css/display.css' %}">
+</head>
+
+<body>
+
+	<div id="LeftCol">
+		<div id="ProfileOptions">
+			<img src="{{students.image.url}}" id="image">
+			<p style="color: lightblue;"> Welcome  <span style="color:lightblue;">{{user.name}}</span></p>
+        </div>
+    </div>
+
+	<div class="bg-img">
+
+		<p style="text-align: center; padding-top: 5px;">
+		    <span class="pull-left" style="padding: 0 0 20px 10px">
+				<a href="logout" class="ovr-button"> Logout </a>
+			</span>
+		    <span class="pull-right" style="padding-right: 10px;">
+		    	<a class="ovr-button" href="register"> Create New Student </a>
+		    </span>
+		    <span class="pull-right" style="padding-right: 20px;">
+		    	<a class="ovr-button" href="change_pass"> Change Password </a>
+		    </span>
+		</p><br>
+
+		<table id="example" class="table table-hover" style="width:100%">
+
+			<thead>
+				<tr>
+					<th>S.N.</th>
+					<th>Name</th>
+					<th>Username</th>
+          <th>Gender</th>
+          <th>Cities</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Image</th>
+					<!-- <th>Action</th>
+					<th>Action</th>
+					<th>Action</th> -->
+				</tr>
+			</thead>
+			<tbody>
+							<tr>
+                {% for students in students_info %}
+								<td>{{students.id}}</td>
+								<td>{{students.name}}</td>
+								<td>{{students.username}}</td>
+								<td>{{students.gender}}</td>
+								<td>{{students.cities}}</td>
+								<td>{{students.email}}</td>
+                <td>{{students.mobile}}</td>
+								<td>
+									<img src="{{students.image.url}}" alt="No images found" height="60px" width="70px">
+								</td>
+                {% endfor %}
+							</tr>
+			</tbody>
+
+		</table>
+
+	</div>
+
+</body>
+
+	<!-- Add Datatable Javascript File -->
+
+	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+   <script type="text/javascript">
+	    $(document).ready(function(){
+	        $('#example').DataTable({
+	            "columnDefs": [
+	                {
+	                    "targets": [ 2 ],
+	                    "visible": true, // If false, It will hide the 2nd column which is in the database (for this example gender)
+	                    "searchable": false
+	                },
+	                {
+	                    "targets": [ 3 ],
+	                    "visible": true
+	                }
+	            ]
+	        });
+	    });
+	</script>
+
+	<script type="text/javascript">
+		setTimeout(function() {
+		location.reload();
+		}, 120000);
+	</script>
+
+	<!-- <script>
+		$.ajax({
+		  	url: 'display.php',
+		  	success: function(data) {
+		    	if (data == "refresh"){
+		      		window.location.reload();
+		    	}
+		  	}
+		});
+	</script> -->
+
+</html>

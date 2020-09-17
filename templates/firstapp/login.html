@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Akhilworld-Login Page</title>
+    <link rel="icon" href="{%static 'images/akki.png'%}" type="image/icon type">
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+    crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="{%static 'css/login.css' %}">
+  </head>
+  <body>
+
+    <form method="post" action="" name="form" class="container">
+
+      {% csrf_token %}
+				<div class="content">
+					<div class="login">
+						<h2> Login Form </h2><hr>
+					</div>
+
+					<div class="input_fields">
+						<label> Username / Email : </label><input type="text" name="email"
+						id="txtEmail" placeholder="Enter Email or Username" required="" >
+					</div>
+					<div class="input_fields" style="padding-bottom: 10px;">
+						<label> Password : </label><input type="password" name="password" id="pass" placeholder="Enter Password" required="">
+					</div>
+					<div class="input_fields" style="padding-bottom: 10px;">
+						<label for="remember">
+                <input type="checkbox" name="remember" id="remember" value="1" /> Remember me
+            </label>
+					</div>
+					<div class="input_fields">
+						<input class="btn btn-primary" type="submit" id="submit" name="login"
+						value="Login" onclick="ValidateEmail();">
+					</div>
+
+					<p><a href="/forgot_pass" style="color: pink;">Forgot Password</a></p>
+
+				</div>
+
+		</form>
+  </body>
+
+<script type="text/javascript">
+
+		function ValidateEmail()
+		{
+			var empt = document.form["form"]["email"].value;
+			// var pass = document.forms["form"]["pass"].value;
+			var email = document.getElementById('txtEmail');
+			var mailformat =  /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/ ;
+			if (empt === "")
+			{
+				alert("Please Fill All the Fields First");
+				return false;
+			}
+			else if(!email === "")
+			{
+				if(!mailformat.test(email.value))
+				{
+					alert("You have Entered an Invalid Email Address!");
+					// email.focus;
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+			}
+		}
+	</script>
+
+</html>

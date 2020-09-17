@@ -1,0 +1,151 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: url(https://images.unsplash.com/photo-1484821582734-6c6c9f99a672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=891&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f1f1f1;
+  text-align: center;
+  box-shadow: 0 0 0px 5px rgba(0,0,0,0.1);
+}
+
+form {
+    padding: 0 0 10px;
+    margin: auto;
+    width: 800px;
+    border-radius: 5px;
+}
+
+/* Formatting for form */
+.container {
+  position: absolute;
+  right: 680px;
+  margin: 10px;
+  position: center;
+  padding: 5px;
+  max-width: 500px;
+}
+
+.content {
+    position: absolute;
+    color: white;
+    width: 1000px;
+    padding: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+  }
+
+p {
+  color: lightgreen;
+  font-size: 15px;
+}
+
+h2 {
+  color: orange;
+  font-size: 35px;
+  font-family: Times New Roman;
+  text-align: center;
+  padding: 20 0 20px;
+}
+
+.input_fields {
+  font-family: Times New Roman;
+  font-size: 19px;
+  padding: 30px 30px;
+  width: 100%;
+  text-align: left;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  background-image: linear-gradient(to left, rgba(150,0,0,0), cadetblue);
+}
+
+input[type=file] {
+  width: 100%;
+	padding: 10px 20px;
+	margin: 8px 0;
+	color: grey;
+	display: inline-block;
+	border: 1px solid grey;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background-color: #f1f1f1;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password],
+select {
+    width: 100%;
+    padding: 10px 30px;
+    margin: 8px 0;
+    /* display: inline-block; */
+    border: 1px solid grey;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Times New Roman;
+    font-size: 19px;
+    background-color: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=file]:focus,
+input[type=password]:focus,select:focus {
+    /* color: orange; */
+    outline: none;
+    background-image: linear-gradient(to left, rgba(150,0,0,0), lightblue);
+}
+
+#submit {
+  font-size: 20px;
+  color: white;
+  margin: 8px 0;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+}
+
+#submit:hover {
+  background-color: green;
+}
+
+span {
+  color: white;
+  font-size: 20px;
+}
+
+#login, a {
+  color: grey;
+  padding: 10px;
+  font-size: 20px;
+}
+
+a:hover {
+  color: green;
+}
+
+.register {
+  background-image: linear-gradient(rgba(150,0,0,0), steelblue, rgba(150,0,0,0));
+}
+
+.box{
+      font-size: 19px;
+      color: red;
+      /*padding: 20px;*/
+      display: none;
+      /*margin-top: 20px;*/
+  }

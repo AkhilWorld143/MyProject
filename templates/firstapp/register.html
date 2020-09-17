@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <title>MusicWorld</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add title bar icon -->
+    <link rel="icon" href="{%static 'images/akki.png'%}" type="image/icon type">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+    crossorigin="anonymous">
+    <!-- Add the css library for the table tag -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Add the jQuery library for using datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Add Css for design of registration form  -->
+    <link rel="stylesheet" href="{%static 'css/register.css' %}">
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+    </script>
+  </head>
+
+  <body>
+
+			<!-- container Class for taking the form fields  onsubmit="return validateForm()"-->
+      <div class="container">
+			<form method="post" name="registration" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+				<div class="content">
+
+					<div class="register">
+						<h2> Registration Form of a Student </h2><hr>
+						<p> <span style="color: red"> * </span>  Required Field </p>
+					</div>
+
+					<!-- <div class="input_fields">
+						<label for="role"></label><input type="hidden" name="role" id="role">
+					</div> -->
+      <div class="row">
+        <div class="col-md-6">
+					<div class="input_fields">
+						<!-- <i class="fas fa-user-graduate"></i> -->
+						Name : <input type="text" name="name" id="name" placeholder="Enter Your Name" pattern="[A-Za-z ]+$" >
+					</div><br>
+
+					<div class="input_fields">
+						Username : <input type="text" name="uname" id="uname" placeholder=" Enter Username" pattern="[A-Za-z0-9_]+$" >
+					</div><br>
+
+					<div class="input_fields">
+						<label for="Gender"> Gender : </label>
+						<select name="gender" id="gender">
+							<option selected=""> Select Gender </option>
+							<option> Male </option>
+							<option> Female </option>
+						</select>
+					</div><br>
+
+					<div class="input_fields">
+				    	<label for="cities"> City : </label>
+				        <select name="cities">
+				            <option selected="" name="cities">Choose City</option>
+				            <option value="Agra"> Agra </option>
+				            <option value="Bangalore"> Bangalore </option>
+				            <option value="Bhopal"> Bhopal </option>
+				            <option value="Hyderabad"> Hyderabad </option>
+				            <option value="Indore"> Indore </option>
+				            <option value="Mumbai"> Mumbai </option>
+				            <option value="Varanasi"> Varanasi </option>
+				            <!-- <option>Other</option> -->
+				        </select>
+				    </div><br>
+				    <!-- <div class="input_fields">
+				    	Add Other City : <input type="text" class="blue box" name="city">
+				    </div><br> -->
+
+					<div class="input_fields">
+						Photo : <input type="file" name="image" id="image">
+					</div><br>
+
+        </div>
+        <div class="col-md-6">
+
+					<div class="input_fields">
+						<!-- <i class="fas fa-at"></i> -->
+						Email : <input type="email" name="email" id="email" placeholder="Enter Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+					</div><br>
+
+					<div class="input_fields">
+						Password : <input type="password" name="password" id="password" placeholder="Create Password" >
+					</div><br>
+
+					<div class="input_fields">
+						Confirm Password : <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" >
+					</div><br>
+
+					<div class="input_fields">
+						Mobile : <input type="tel" name="mobile" id="mobile" placeholder="Enter Mobile Number" pattern="[6789][0-9]{9}" >
+					</div><br>
+
+          <div class="input_fields">
+						Date : <input type="text" name="date" id="datepicker" placeholder="Enter Current Date" >
+					</div><br>
+
+        </div>
+        </div>
+					<div>
+						<input type="submit" value="Register" id="submit">
+					</div>
+
+					<p id="login">
+						<span> Already have an account ? </span><a href="/login"  style="color:red; text-decoration: none;"> Login here </a>
+					</p>
+				</div>
+
+
+			</form>
+    </div>
+
+  </body>
+</html>
